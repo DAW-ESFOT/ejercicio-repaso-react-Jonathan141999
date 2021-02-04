@@ -37,3 +37,19 @@
     transform: rotate(360deg);
   }
 }
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cards{
+  padding: 5px;
+  margin:10px;
+}
+.button-cards{
+  margin-top: 20px;
+}
+.image{
+  height: 10em;
+  padding: 5px;
+}

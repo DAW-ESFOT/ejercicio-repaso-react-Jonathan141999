@@ -2,10 +2,12 @@ import logo from '../images/logo.svg';
 import React, {useState, useEffect} from "react";
 import '../styles/App.css';
 import Card from "./TodoBook";
+import {Col, Pagination} from "antd";
 //import {Card} from "antd";
 
 function App() {
     const [books, setBooks] = useState([]);
+    const [page,setPage]=useState(1);
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -17,8 +19,11 @@ function App() {
         }
 
         fetchBooks();
-    }, []);
+    }, [page]);
 
+    const handlePagination =(page)=>{
+        setPage(page);
+    }
   return (
     <>
         <h1 style={{margin: '15px'}}>LIBROS</h1>
@@ -28,6 +33,16 @@ function App() {
                     Databook={book}
                 />
             ))}
+        </div>
+        <div className={'list'}>
+            <Col>
+                <Pagination
+                    style={{textAlign:'rigth'}}
+                    defaultCurrent={1}
+                    total={50}
+                    onChange={handlePagination}
+                />
+            </Col>
         </div>
     </>
   );
