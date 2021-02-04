@@ -11,7 +11,7 @@ function App() {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const response = await fetch("https://stark-spire-22280.herokuapp.com/api/books");
+            const response = await fetch("https://stark-spire-22280.herokuapp.com/api/books?page=" + page);
             const json = await response.json();
             console.log("json", json);
             setBooks(json.data);
@@ -21,8 +21,8 @@ function App() {
         fetchBooks();
     }, [page]);
 
-    const handlePagination =(page)=>{
-        setPage(page);
+    const handlePagination =(pages)=>{
+        setPage(pages);
     }
   return (
     <>
@@ -37,10 +37,10 @@ function App() {
         <div className={'list'}>
             <Col>
                 <Pagination
+                    onChange={handlePagination}
                     style={{textAlign:'rigth'}}
                     defaultCurrent={1}
                     total={50}
-                    onChange={handlePagination}
                 />
             </Col>
         </div>

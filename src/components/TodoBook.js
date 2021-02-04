@@ -1,6 +1,6 @@
 import '../styles/App.css';
 import React, {useState} from 'react';
-import {Card, Button, Modal, Pagination,Col,Row} from 'antd';
+import {Card, Button, Modal,Col,Row} from 'antd';
 
 const {Meta} = Card;
 
